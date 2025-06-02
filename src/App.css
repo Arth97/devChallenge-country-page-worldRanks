@@ -1,14 +1,43 @@
 .App {
+	margin-top: 210px;
 	min-height: 100vh;
+	max-width: 1280px;
+	padding: 30px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	/* justify-content: center; */
+	
+	border: 1px solid #282B30;
+	background-color: #1B1D1F;
+	border-radius: 15px;
 }
 
-.App-header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+
+input {
+	width: 340px; 
+	height: 45px;
+	padding: 15px;
+	border-radius: 10px;
+}
+input::placeholder {
+	color: #D2D5DA;
+}
+
+.input-search {
+	background-color: #282B30;
+}
+
+.input-sort {
+	background-color: #1B1D1F;
+	border: 3px solid #282B30;
+}
+
+
+.region-tag {
+	width: fit-content;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #282B30;
 }

@@ -63,6 +63,12 @@ code {
   font-size: 0.75rem;
 }
 
+body {
+	padding: 30px;
+	background-color: #1B1D1F;
+	color: #D2D5DA;
+}
+
 body::before {
 	content: url('/public/Logo.svg');
 	position: fixed;
