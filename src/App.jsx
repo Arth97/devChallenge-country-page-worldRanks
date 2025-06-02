@@ -32,12 +32,12 @@ function App() {
           <div>
             <label className="text-12-bold block mb-2">Region</label>
             <div className="flex flex-wrap gap-2">
-              <button className="text-white text-12-medium">Americas</button>
-              <button className="text-white text-12-medium">Antartic</button>
-              <button className="text-white text-12-medium">Africa</button>
-              <button className="text-white text-12-medium">Asia</button>
-              <button className="text-white text-12-medium">Europe</button>
-              <button className="text-white text-12-medium">Oceania</button>
+              <button className="region-tag text-12-medium">Americas</button>
+              <button className="region-tag text-12-medium">Antartic</button>
+              <button className="region-tag text-12-medium">Africa</button>
+              <button className="region-tag text-12-medium">Asia</button>
+              <button className="region-tag text-12-medium">Europe</button>
+              <button className="region-tag text-12-medium">Oceania</button>
             </div>
           </div>
 
@@ -46,11 +46,11 @@ function App() {
             <label className="text-12-bold block mb-2">Status</label>
             <div className="flex flex-col gap-2">
               <label className="inline-flex items-center text-white text-12-medium">
-                <input type="checkbox" className="accent-[#6C727F] mr-2" />
+                <input type="checkbox" className="status-checkbox accent-[#6C727F] mr-2" />
                 lorem ipsum
               </label>
               <label className="text-12-bold">
-                <input type="checkbox" className="accent-[#6C727F] mr-2" />
+                <input type="checkbox" className="status-checkbox accent-[#6C727F] mr-2" />
                 lorem ipsum
               </label>
             </div>
