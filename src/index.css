@@ -67,6 +67,8 @@ body {
 	padding: 30px;
 	background-color: #1B1D1F;
 	color: #D2D5DA;
+	display: flex;
+	justify-content: center;
 }
 
 body::before {
