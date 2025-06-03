@@ -37,10 +37,13 @@ input::placeholder {
 
 .region-tag {
 	width: fit-content;
-	padding: 10px 15px;
+	padding: 5px 15px;
 	border-radius: 10px;
-	background-color: #282B30;
 }
+
+.region-tag-selected {
+ background-color: #282B30;
+} /*TODO: Una transicion estaria guapo*/
 
 .status-checkbox {
 	width: 20px;
