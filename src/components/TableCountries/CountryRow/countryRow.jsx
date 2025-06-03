@@ -5,8 +5,8 @@ const CountryRow = ({country}) => {
   return (
     <>
       <tr>
-				{/* <td className="py-2">{country.flags.png}</td> */}
-				<td className="py-2">{country.flags.png}</td>
+				{/*TODO: Set svg size*/}
+				<td className="py-2"><img	src={country.flags.svg} alt={country.flags.alt} /></td>
 				<td className="py-2">{country?.name?.official}</td>
 				<td className="py-2">{country?.population}</td>
 				<td className="py-2">{country?.area}</td>
