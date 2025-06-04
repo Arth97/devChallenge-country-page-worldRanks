@@ -24,3 +24,16 @@ function App() {
 }
 
 export default App;
+
+
+/*
+	TODOS:
+	- Filtro sort by
+	- Filtro Region
+	- Filtro Status
+	- countriesCount
+	- Input Search logica
+	- Pagina detallles
+	- Gaps en la tabla
+
+*/

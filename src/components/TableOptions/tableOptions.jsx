@@ -4,6 +4,10 @@ import { useState } from 'react';
 const TableOptions = () => {
 	const [regionSelected, setRegionSelected] = useState([]);
 
+	const sortBy = (value) => {
+		console.log("Sorting by selected criteria:", value);
+	}
+
 	const toggleRegionSelected = (region) => {
 		if (regionSelected.includes(region)) {
 			setRegionSelected(regionSelected.filter(r => r !== region));
@@ -11,7 +15,6 @@ const TableOptions = () => {
 			setRegionSelected([...regionSelected, region]);
 		}
 	}
-
   const isRegionSelected = (region) => {
     return regionSelected.includes(region);
   }
@@ -21,12 +24,11 @@ const TableOptions = () => {
 			{/* Sort by */}
 			<div>
 				<label htmlFor="sort" className="text-12-bold block mb-2">Sort by</label>
-				<input
-					type="text"
-					id="sort"
-					className="input-sort"
-					placeholder="Sort..."
-				/>
+				<select name="Sort" id="sort" onChange={(e) => {sortBy(e.target.value)}}>
+					<option value="name">Name</option>
+					<option value="population">Population</option>
+					<option value="area">Area</option>
+				</select>
 			</div>
 
 			{/* Region */}

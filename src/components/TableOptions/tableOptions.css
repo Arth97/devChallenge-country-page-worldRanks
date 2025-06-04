@@ -1,12 +1,13 @@
 
-.input-sort {
+select {
 	background-color: #1B1D1F;
 	border: 3px solid #282B30;
+	padding: 0 15px;
 }
 
 .region-tag {
 	width: fit-content;
-	padding: 5px 15px;
+	padding: 7px 15px;
 	border-radius: 10px;
 }
 
