@@ -1,8 +1,11 @@
 import './tableOptions.css';
-import { useState } from 'react';
+import { TableOptionsContext } from '../../context/TableOptionsContext';
+import { useContext, useState } from 'react';
 
 const TableOptions = () => {
 	const [regionSelected, setRegionSelected] = useState([]);
+
+	const { sort, setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
 
 	const sortBy = (value) => {
 		console.log("Sorting by selected criteria:", value);

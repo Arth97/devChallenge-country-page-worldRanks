@@ -1,6 +1,13 @@
 import React, { createContext, useState } from 'react';
 
-export const TableOptionsContext = createContext();
+export const TableOptionsContext = createContext({
+  sort: 'name',
+  setSort: (value) => {},
+  regions: [],
+  setRegions: (value) => {},
+  status: { unMember: false, independent: false },
+  setStatus: (value) => {},
+});
 
 export const TableOptionsProvider = ({ children }) => {
   const [sort, setSort] = useState('name');
