@@ -27,7 +27,7 @@ const TableCountries = () => {
 				<thead>
 					<tr className="text-12-bold border-b border-[#6C727F]">
 						<th className="py-3 pr-10">Flag</th>
-						<th className="py-3">Name</th>
+						<th className="py-3" style={{ maxWidth: '250px' }}>Name</th>
 						<th className="py-3">Population</th>
 						<th className="py-3">Area (km²)</th>
 						<th className="py-3">Region</th>

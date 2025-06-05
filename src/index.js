@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { TableOptionsProvider } from './context/TableOptionsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-	// <TableOptionsContext.Provider value={{}}>
+	<TableOptionsProvider>
     <App />
-	// </TableOptionsContext.Provider>
+	</TableOptionsProvider>
   // </React.StrictMode>
 );
