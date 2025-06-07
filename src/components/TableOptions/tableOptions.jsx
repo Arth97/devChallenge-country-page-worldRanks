@@ -1,25 +1,20 @@
 import './tableOptions.css';
 import { TableOptionsContext } from '../../context/TableOptionsContext';
-import { useContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 const TableOptions = () => {
-	const [regionSelected, setRegionSelected] = useState([]);
 
 	const { sort, setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
 
-	const sortBy = (value) => {
-		console.log("Sorting by selected criteria:", value);
-	}
-
 	const toggleRegionSelected = (region) => {
-		if (regionSelected.includes(region)) {
-			setRegionSelected(regionSelected.filter(r => r !== region));
+		if (regions.includes(region)) {
+			setRegions(regions.filter(r => r !== region));
 		} else {
-			setRegionSelected([...regionSelected, region]);
+			setRegions([...regions, region]);
 		}
 	}
   const isRegionSelected = (region) => {
-    return regionSelected.includes(region);
+    return regions.includes(region);
   }
 
   return (
@@ -27,7 +22,7 @@ const TableOptions = () => {
 			{/* Sort by */}
 			<div>
 				<label htmlFor="sort" className="text-12-bold block mb-2">Sort by</label>
-				<select name="Sort" id="sort" onChange={(e) => {sortBy(e.target.value)}}>
+				<select name="Sort" id="sort" onChange={(e) => {setSort(e.target.value)}}>
 					<option value="name">Name</option>
 					<option value="population">Population</option>
 					<option value="area">Area</option>

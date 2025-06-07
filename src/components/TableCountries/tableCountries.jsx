@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect, useState } from 'react';
 import './tableCountries.css';
 import CountryRow from './CountryRow/countryRow';
+import { TableOptionsContext } from '../../context/TableOptionsContext';
 
 const TableCountries = () => {
 	const [data, setData] = useState(null);
+
+	const { sort, regions, status  } = useContext(TableOptionsContext);
 
 	useEffect(() => {
 		fetchData()
@@ -11,6 +15,9 @@ const TableCountries = () => {
 
 	const fetchData = async () => {
 		try {
+			// console.log("sort", sort)
+			// console.log(`https://restcountries.com/v3.1/all?sort=${sort}`)
+			// const response = await fetch(`https://restcountries.com/v3.1/all?sort=${sort}`);
 			const response = await fetch('https://restcountries.com/v3.1/all');
 			const data = await response.json();
 			setData(data)
