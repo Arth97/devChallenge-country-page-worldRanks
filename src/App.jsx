@@ -1,12 +1,15 @@
 import './App.css';
 import TableOptions from './components/TableOptions/tableOptions';
 import TableCountries from './components/TableCountries/tableCountries';
+import { useState } from 'react';
 
 function App() {
+	const [countriesCount, setCountriesCount] = useState(0);
+	
   return (
     <div className="App">
 			<div className="w-full flex flex-row justify-between mb-7">
-				<p className="text-16-semibold">Found {/*countriesCount*/} countries</p>
+				<p className="text-16-semibold">Found {countriesCount} countries</p>
 				<input
           type="search"
           id="search"
@@ -17,7 +20,7 @@ function App() {
 
       <div className="w-full flex flex-row gap-8">
 				<TableOptions />
-				<TableCountries />
+				<TableCountries setCountriesCount={setCountriesCount} />
       </div>
     </div>
   );

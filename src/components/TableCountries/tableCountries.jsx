@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './tableCountries.css';
 import CountryRow from './CountryRow/countryRow';
 import { TableOptionsContext } from '../../context/TableOptionsContext';
 
-const TableCountries = () => {
+const TableCountries = ({setCountriesCount}) => {
 	const [data, setData] = useState(null);
 	const [sortedData, setSortedData] = useState(null);
 
-	const { sort, regions, status  } = useContext(ContextProvider);
+	const { sort, regions, status  } = useContext(TableOptionsContext);
 
 	const sortCache = useRef({})
 
@@ -50,6 +50,7 @@ const TableCountries = () => {
       }
       sortCache.current[sort] = sortedData;
 			setSortedData(sortedData);
+			setCountriesCount(sortedData.length);
 		}
 	},[data, sort]);
 
