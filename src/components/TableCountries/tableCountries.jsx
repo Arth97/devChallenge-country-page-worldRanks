@@ -74,10 +74,8 @@ const TableCountries = ({setCountriesCount}) => {
 		if (!sortCache.current[sort] && !data) return;
 
 		if (regions.length === 0) {
-			console.log("")
-			console.log("sortCache.current[sort]:", sortCache.current[sort]);
 			setFilteredData(sortCache.current[sort]);
-			console.log("setFilteredData", filteredData);
+			return;
 		}
 
 		if(sortCache.current[sort]) {
