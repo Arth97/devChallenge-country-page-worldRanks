@@ -6,7 +6,7 @@ import { TableOptionsContext } from '../../context/TableOptionsContext';
 
 const TableCountries = ({setCountriesCount}) => {
 	const [data, setData] = useState(null);
-	const [sortedData, setSortedData] = useState(null);
+	const [filteredData, setFilteredData] = useState(null);
 
 	const { sort, regions, status  } = useContext(TableOptionsContext);
 
@@ -34,10 +34,18 @@ const TableCountries = ({setCountriesCount}) => {
 	}
 
 	useEffect(() => {
+		sortData();
+	},[data, sort]);
+
+	const sortData = () => {
 		if (!sortCache.current[sort] && !data) return;
 
 		if (sortCache.current[sort]) {
-			setSortedData(sortCache.current[sort]);
+			if (regions.length > 0) {
+				filterRegions();
+				return;
+			}
+			setFilteredData(sortCache.current[sort]);
 			return;
 		} else {
 			let sortedData = []
@@ -46,13 +54,46 @@ const TableCountries = ({setCountriesCount}) => {
       } else if (sort === 'area') {
         sortedData = [...data].sort((a, b) => b.area - a.area);
       } else {
-        sortedData = [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
+        sortedData = [...data].sort((a, b) => a.name.official.localeCompare(b.name.official));
       }
       sortCache.current[sort] = sortedData;
-			setSortedData(sortedData);
+			if (regions.length > 0) {
+				filterRegions();
+				return;
+			}
+			setFilteredData(sortedData);
 			setCountriesCount(sortedData.length);
 		}
-	},[data, sort]);
+	}
+
+	useEffect(() => {
+		filterRegions();
+	},[regions]);
+
+	const filterRegions = () => {
+		if (!sortCache.current[sort] && !data) return;
+
+		if (regions.length === 0) {
+			console.log("")
+			console.log("sortCache.current[sort]:", sortCache.current[sort]);
+			setFilteredData(sortCache.current[sort]);
+			console.log("setFilteredData", filteredData);
+		}
+
+		if(sortCache.current[sort]) {
+			const filteredData = sortCache.current[sort].filter(country => {
+				return regions.includes(country.region);
+			})
+			setFilteredData(filteredData);
+			setCountriesCount(filteredData.length);
+		} else {
+			const filteredData = data.filter(country => {
+				return regions.includes(country.region);
+			});
+			setFilteredData(filteredData);
+			setCountriesCount(filteredData.length);
+		}
+	}
 
   return (
 		<div className="w-2/3">
@@ -67,7 +108,7 @@ const TableCountries = ({setCountriesCount}) => {
 					</tr>
 				</thead>
 				<tbody>
-					{sortedData && sortedData.map((country, index) => (
+					{filteredData && filteredData.map((country, index) => (
 						<CountryRow country={country} key={index} />
 					))}
 				</tbody>

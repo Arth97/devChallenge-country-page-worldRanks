@@ -31,12 +31,12 @@ export default App;
 
 /*
 	TODOS:
-	- Filtro sort by
-	- Filtro Region
-	- Filtro Status
-	- countriesCount
-	- Input Search logica
-	- Pagina detallles
-	- Gaps en la tabla
+	- Filtro sort by OK
+	- Filtro Region 
+	- Filtro Status 
+	- countriesCount  OK
+	- Pagina detallles 
+	- Gaps en la tabla 
+	- Input Search logica 
 
 */
