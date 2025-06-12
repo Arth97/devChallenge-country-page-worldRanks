@@ -47,11 +47,21 @@ const TableOptions = () => {
 				<label className="text-12-bold block mb-2">Status</label>
 				<div className="flex flex-col gap-2">
 					<label className="text-12-medium inline-flex items-center">
-						<input type="checkbox" className="status-checkbox accent-[#6C727F] mr-2" />
+						<input 
+							type="checkbox"
+							className="status-checkbox accent-[#6C727F] mr-2"
+							checked={status.unMember}
+							onChange={(e) => setStatus({ ...status, unMember: e.target.checked })}
+						/>
 						Member of the United Nations
 					</label>
 					<label className="text-12-medium inline-flex items-center">
-						<input type="checkbox" className="status-checkbox accent-[#6C727F] mr-2" />
+						<input 
+							type="checkbox"
+							className="status-checkbox accent-[#6C727F] mr-2"
+							checked={status.independent}
+							onChange={(e) => setStatus({ ...status, independent: e.target.checked })}
+						/>
 						Independent
 					</label>
 				</div>

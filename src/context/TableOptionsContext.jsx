@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 
 export const TableOptionsContext = createContext({
-  sort: 'population',
+  sort: 'name',
   setSort: (value) => {},
   regions: [],
   setRegions: (value) => {},
@@ -10,7 +10,7 @@ export const TableOptionsContext = createContext({
 });
 
 export const TableOptionsProvider = ({ children }) => {
-  const [sort, setSort] = useState('population');
+  const [sort, setSort] = useState('name');
   const [regions, setRegions] = useState([]);
   const [status, setStatus] = useState({
     unMember: false,

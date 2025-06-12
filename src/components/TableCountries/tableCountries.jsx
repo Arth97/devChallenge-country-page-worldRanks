@@ -37,17 +37,14 @@ const TableCountries = ({setCountriesCount}) => {
 		sortData();
 	},[data, sort]);
 
+	useEffect(() => {
+		filterRegions();
+	},[regions]);
+
 	const sortData = () => {
 		if (!sortCache.current[sort] && !data) return;
 
-		if (sortCache.current[sort]) {
-			if (regions.length > 0) {
-				filterRegions();
-				return;
-			}
-			setFilteredData(sortCache.current[sort]);
-			return;
-		} else {
+		if (!sortCache.current[sort]) {
 			let sortedData = []
 			if (sort === 'population') {
         sortedData = [...data].sort((a, b) => b.population - a.population);
@@ -57,18 +54,9 @@ const TableCountries = ({setCountriesCount}) => {
         sortedData = [...data].sort((a, b) => a.name.official.localeCompare(b.name.official));
       }
       sortCache.current[sort] = sortedData;
-			if (regions.length > 0) {
-				filterRegions();
-				return;
-			}
-			setFilteredData(sortedData);
-			setCountriesCount(sortedData.length);
 		}
-	}
-
-	useEffect(() => {
 		filterRegions();
-	},[regions]);
+	}
 
 	const filterRegions = () => {
 		if (!sortCache.current[sort] && !data) return;
@@ -78,19 +66,18 @@ const TableCountries = ({setCountriesCount}) => {
 			return;
 		}
 
+		let filteredData = [];
 		if(sortCache.current[sort]) {
-			const filteredData = sortCache.current[sort].filter(country => {
+			filteredData = sortCache.current[sort].filter(country => {
 				return regions.includes(country.region);
 			})
-			setFilteredData(filteredData);
-			setCountriesCount(filteredData.length);
 		} else {
-			const filteredData = data.filter(country => {
+			filteredData = data.filter(country => {
 				return regions.includes(country.region);
 			});
-			setFilteredData(filteredData);
-			setCountriesCount(filteredData.length);
 		}
+		setFilteredData(filteredData);
+		setCountriesCount(filteredData.length);
 	}
 
   return (
