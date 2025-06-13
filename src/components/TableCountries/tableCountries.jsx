@@ -80,7 +80,11 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 	}
 
 	const searchByInput = () => {
-		if (!filteredData || !searchInput) return;
+		if (!filteredData || (sortCache.current[sort] && searchInput === "")) {
+			filterByRegions();
+			return;
+		}
+
 		const lowerSearch = searchInput.toLowerCase();
 		const searchedData = filteredData.filter(country => {
 			const name = country.name?.official?.toLowerCase() || '';

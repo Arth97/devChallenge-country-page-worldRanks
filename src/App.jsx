@@ -42,10 +42,10 @@ export default App;
 	TODOS:
 	- Filtro sort by OK
 	- Filtro Region OK
-	- Filtro Status 
-	- countriesCount  OK
+	- Filtro Status OK
+	- countriesCount OK
+	- Input Search logica 
 	- Pagina detallles 
 	- Gaps en la tabla 
-	- Input Search logica 
 
 */
