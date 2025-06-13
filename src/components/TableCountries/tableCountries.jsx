@@ -4,7 +4,7 @@ import './tableCountries.css';
 import CountryRow from './CountryRow/countryRow';
 import { TableOptionsContext } from '../../context/TableOptionsContext';
 
-const TableCountries = ({setCountriesCount}) => {
+const TableCountries = ({setCountriesCount, searchInput}) => {
 	const [data, setData] = useState(null);
 	const [filteredData, setFilteredData] = useState(null);
 
@@ -40,6 +40,10 @@ const TableCountries = ({setCountriesCount}) => {
 	useEffect(() => {
 		filterRegions();
 	},[regions]);
+
+	useEffect(() => {
+		searchByInput();
+	},[searchInput]);
 
 	const sortData = () => {
 		if (!sortCache.current[sort] && !data) return;
@@ -78,6 +82,23 @@ const TableCountries = ({setCountriesCount}) => {
 		}
 		setFilteredData(filteredData);
 		setCountriesCount(filteredData.length);
+	}
+
+	const searchByInput = () => {
+		if (!filteredData || !searchInput) return;
+		const lowerSearch = searchInput.toLowerCase();
+		const searchedData = filteredData.filter(country => {
+			const name = country.name?.official?.toLowerCase() || '';
+			const region = country.region?.toLowerCase() || '';
+			const subregion = country.subregion?.toLowerCase() || '';
+			return (
+				name.includes(lowerSearch) ||
+				region.includes(lowerSearch) ||
+				subregion.includes(lowerSearch)
+			);
+		});
+		setFilteredData(searchedData);
+		setCountriesCount(searchedData.length);
 	}
 
   return (
