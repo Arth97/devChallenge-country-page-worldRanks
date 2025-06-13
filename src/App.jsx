@@ -42,7 +42,7 @@ export default App;
 	TODOS:
 	- Filtro sort by OK
 	- Filtro Region OK
-	- Filtro Status OK
+	- Filtro Status 
 	- countriesCount  OK
 	- Pagina detallles 
 	- Gaps en la tabla 

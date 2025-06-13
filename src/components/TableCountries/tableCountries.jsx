@@ -18,15 +18,10 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 
 	const fetchData = async () => {
 		try {
-			// console.log("sort", sort)
-			// console.log(`https://restcountries.com/v3.1/all?sort=${sort}`)
-			// const response = await fetch(`https://restcountries.com/v3.1/all?sort=${sort}`);
-			// const response = await fetch('https://restcountries.com/v3.1/all');
-			const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flags,population,area,region');
+			const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flags,population,area,region,subregion,independent,unMember');
 			const data = await response.json();
 			setData(data)
 			sortCache.current = {};
-			console.log('Fetched data:', data);
 			return data 
 		} catch (err) {
 			console.error('Error fetching data:', err);
@@ -38,8 +33,8 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 	},[data, sort]);
 
 	useEffect(() => {
-		filterRegions();
-	},[regions]);
+		filterByRegions();
+	},[regions, status]);
 
 	useEffect(() => {
 		searchByInput();
@@ -59,27 +54,27 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
       }
       sortCache.current[sort] = sortedData;
 		}
-		filterRegions();
+		filterByRegions();
 	}
 
-	const filterRegions = () => {
+	const filterByRegions = () => {
 		if (!sortCache.current[sort] && !data) return;
 
-		if (regions.length === 0) {
-			setFilteredData(sortCache.current[sort]);
-			return;
-		}
+		let dataAux = sortCache.current[sort] ? sortCache.current[sort] : data;
 
 		let filteredData = [];
-		if(sortCache.current[sort]) {
-			filteredData = sortCache.current[sort].filter(country => {
-				return regions.includes(country.region);
-			})
+		if (regions.length === 0) {
+			filteredData = dataAux.filter(country => {
+				return (status.independent === country.independent && status.unMember === country.unMember)
+			});
 		} else {
-			filteredData = data.filter(country => {
-				return regions.includes(country.region);
+			filteredData = dataAux.filter(country => {
+				return (regions.includes(country.region) 
+					&& (status.independent === country.independent) 
+					&& (status.unMember === country.unMember));
 			});
 		}
+		
 		setFilteredData(filteredData);
 		setCountriesCount(filteredData.length);
 	}

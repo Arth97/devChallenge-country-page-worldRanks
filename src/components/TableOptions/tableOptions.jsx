@@ -1,10 +1,10 @@
 import './tableOptions.css';
 import { TableOptionsContext } from '../../context/TableOptionsContext';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 const TableOptions = () => {
 
-	const { sort, setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
+	const { setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
 
 	const toggleRegionSelected = (region) => {
 		if (regions.includes(region)) {
