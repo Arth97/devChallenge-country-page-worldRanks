@@ -7,6 +7,12 @@ import { TableOptionsContext } from '../../context/TableOptionsContext';
 const TableCountries = ({setCountriesCount, searchInput}) => {
 	const [data, setData] = useState(null);
 	const [filteredData, setFilteredData] = useState(null);
+	const [currentPage, setCurrentPage] = useState(1);
+
+  const pageSize = 15;
+	const paginatedData = filteredData
+    ? filteredData.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    : [];
 
 	const { sort, regions, status  } = useContext(TableOptionsContext);
 
@@ -112,12 +118,31 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 						<th className="py-3">Region</th>
 					</tr>
 				</thead>
-				<tbody>
-					{filteredData && filteredData.map((country, index) => (
-						<CountryRow country={country} key={index} />
-					))}
-				</tbody>
+				<tbody style={{ height: '920px' }}>
+          {paginatedData && paginatedData.map((country, index) => (
+            <CountryRow country={country} key={index} />
+          ))}
+        </tbody>
 			</table>
+			<div className="flex gap-2 mt-4 justify-center">
+        <button
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        <span>Página {currentPage} de {filteredData ? Math.ceil(filteredData.length / pageSize) : 1}</span>
+        <button
+          onClick={() =>
+            setCurrentPage((p) =>
+              filteredData && p < Math.ceil(filteredData.length / pageSize) ? p + 1 : p
+            )
+          }
+          disabled={filteredData && currentPage >= Math.ceil(filteredData.length / pageSize)}
+        >
+          Next
+        </button>
+      </div>
 		</div>
   );
 };

@@ -24,7 +24,7 @@ const TableOptions = () => {
 				<label htmlFor="sort" className="text-12-bold block mb-2">Sort by</label>
 				<select name="Sort" id="sort" onChange={(e) => {setSort(e.target.value)}}>
 					<option value="name">Name</option>
-					<option value="population">Population</option>
+					<option value="population" selected>Population</option>
 					<option value="area">Area</option>
 				</select>
 			</div>
