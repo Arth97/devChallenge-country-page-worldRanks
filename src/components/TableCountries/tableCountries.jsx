@@ -3,11 +3,14 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './tableCountries.css';
 import CountryRow from './CountryRow/countryRow';
 import { TableOptionsContext } from '../../context/TableOptionsContext';
+import { Link, useNavigate } from 'react-router';
 
 const TableCountries = ({setCountriesCount, searchInput}) => {
 	const [data, setData] = useState(null);
 	const [filteredData, setFilteredData] = useState(null);
 	const [currentPage, setCurrentPage] = useState(1);
+
+	let navigate = useNavigate();
 
   const pageSize = 15;
 	const paginatedData = filteredData
@@ -120,7 +123,16 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 				</thead>
 				<tbody style={{ height: '920px' }}>
           {paginatedData && paginatedData.map((country, index) => (
-            <CountryRow country={country} key={index} />
+						<>
+							{/* <CountryRow 
+								country={country}
+								key={index}
+								onClick={() => navigate(`/countryDetail/${country.cca3}`)}
+							/> */}
+							<Link to={`/countryDetail/${country.name.official}`}>
+								<CountryRow country={country} key={index} />
+							</Link>
+						</>
           ))}
         </tbody>
 			</table>

@@ -1,0 +1,16 @@
+.country-detail {
+	margin-top: 210px;
+	min-height: 100vh;
+	max-width: 720px;
+	width: 100%;
+	padding: 30px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+	
+	border: 1px solid #282B30;
+	background-color: #1B1D1F;
+	border-radius: 15px;
+}
