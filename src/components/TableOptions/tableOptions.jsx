@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 const TableOptions = () => {
 
-	const { setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
+	const { sort, setSort, regions, setRegions, status, setStatus } = useContext(TableOptionsContext);
 
 	const toggleRegionSelected = (region) => {
 		if (regions.includes(region)) {
@@ -22,9 +22,9 @@ const TableOptions = () => {
 			{/* Sort by */}
 			<div>
 				<label htmlFor="sort" className="text-12-bold block mb-2">Sort by</label>
-				<select name="Sort" id="sort" onChange={(e) => {setSort(e.target.value)}}>
+				<select name="Sort" id="sort" value={sort} onChange={(e) => {setSort(e.target.value)}}>
 					<option value="name">Name</option>
-					<option value="population" selected>Population</option>
+					<option value="population">Population</option>
 					<option value="area">Area</option>
 				</select>
 			</div>

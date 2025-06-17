@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 
 const CountryDetail = () => {
 	const [country, setCountry] = useState(null);
+	const [neighbours, setNeighbours] = useState(null);
 
 	const {countryParam} = useParams();
 
@@ -16,7 +17,7 @@ const CountryDetail = () => {
 
 	const fetchData = async () => {
 		try {
-			const response = await fetch(`https://restcountries.com/v3.1/name/${countryParam}?fullText=true`);
+			const response = await fetch(`https://restcountries.com/v3.1/name/${countryParam}`);
 			const data = await response.json();
 			setCountry(data[0]);
 			console.log("data", data[0]);
@@ -26,38 +27,65 @@ const CountryDetail = () => {
 		}
 	}
 
+	useEffect(() => {
+		if (!country) return;
+		fetchNeighbours()
+	},[country]);
+
+	const fetchNeighbours = async () => {
+		const neigh = country?.borders;
+		if (!neigh || neigh.length === 0) {
+			setNeighbours([]);
+			return;
+		}
+		try {
+			const responses = await Promise.all(
+				neigh.map(async(code) => {
+					const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}?fields=name,flags`);
+					const data = await response.json();
+					return data[0];
+				})
+			);
+			setNeighbours(responses);
+		} catch (err) {
+			console.error('Error fetching neighbours:', err);
+			setNeighbours([]);
+		}
+	}
+
   return (
     <div className="country-detail">
-			<img	src={country?.flags?.svg} alt={country?.flags?.alt} width={260} height={195} />
-			<h2>{country?.name.common}</h2>
-			<p></p>
-			<div className="country-data">
-
+			<img className="img-detail" src={country?.flags?.svg} alt={country?.flags?.alt} width={260} height={195} />
+			<h1 className="text-32-semibold mt-10">{country?.name.common}</h1>
+			<p>{country?.name?.official}</p>
+			<div className="country-data mt-10">
+				<div className="data-tag title-text">Population | {country?.population?.toLocaleString('es-ES')}</div>
+				<div className="data-tag title-text">Area (km²) | {country?.area?.toLocaleString('es-ES')}</div>
 			</div>
-			<div className="country-details">
-				<div className="flex justify-between">
+			<div className="country-info-container mt-10">
+				<div className="country-info">
 					<p>Capital</p>
 					<p>{country?.capital}</p>
 				</div>
-				<div className="flex justify-between">
+				<div className="country-info">
 					<p>Subregion</p>
 					<p>{country?.subregion}</p>
 				</div>
-				<div className="flex justify-between">
+				<div className="country-info">
 					<p>Language</p>
-					{/* <p>{country?.languages}</p> */}
+					<p>{country ? Object.values(country?.languages).join(', ') : ''}</p>
 				</div>
-				<div className="flex justify-between">
+				<div className="country-info">
 					<p>Currencies</p>
-					{/* <p>{country.currencies}</p> */}
+					<p>{country ? Object.values(country?.currencies).map(currency => currency.name).join(', ') : ''}</p>
 				</div>
-				<div className="flex justify-between">
-					<p>Continents</p>
+				<div className="country-info">
 					<p>{country?.continents}</p>
+					<p>Continents</p>
 				</div>
-			</div>
-			<div className="country-neighbours">
-
+				<div className="country-neighbours">
+					<p>Neighbouring Countries</p>
+				</div>
 			</div>
 		</div>
   );
