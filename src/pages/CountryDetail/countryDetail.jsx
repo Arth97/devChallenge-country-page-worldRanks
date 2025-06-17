@@ -7,21 +7,20 @@ const CountryDetail = () => {
 	const [country, setCountry] = useState(null);
 	const [neighbours, setNeighbours] = useState(null);
 
-	const {countryParam} = useParams();
+	const {cca3} = useParams();
 
 	useEffect(() => {
-		if (!countryParam) return;
-		console.log("country", countryParam);
+		if (!cca3) return;
 		fetchData()
-	},[countryParam]);
+	},[cca3]);
 
 	const fetchData = async () => {
 		try {
-			const response = await fetch(`https://restcountries.com/v3.1/name/${countryParam}`);
+			// const response = await fetch(`https://restcountries.com/v3.1/name/${cca3}`);
+			const response = await fetch(`https://restcountries.com/v3.1/alpha/${cca3}`);
 			const data = await response.json();
 			setCountry(data[0]);
-			console.log("data", data[0]);
-			return data 
+			return; 
 		} catch (err) {
 			console.error('Error fetching data:', err);
 		}
@@ -43,9 +42,10 @@ const CountryDetail = () => {
 				neigh.map(async(code) => {
 					const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}?fields=name,flags`);
 					const data = await response.json();
-					return data[0];
+					return data;
 				})
 			);
+			console.log("responses", responses);
 			setNeighbours(responses);
 		} catch (err) {
 			console.error('Error fetching neighbours:', err);
@@ -83,8 +83,24 @@ const CountryDetail = () => {
 					<p>{country?.continents}</p>
 					<p>Continents</p>
 				</div>
-				<div className="country-neighbours">
+				<div className="country-info">
 					<p>Neighbouring Countries</p>
+				</div>
+				<div className="country-neighbours">
+					<div>
+						{neighbours && neighbours.length > 0 ? 
+							(
+								<div className="neighbour-list">
+									{neighbours.map((neighbour, index) => (
+										<div>
+											<img src={neighbour.flags.svg} alt={neighbour.flags.alt} className="neighbour-img" width={80} height={60} />
+											<p>{neighbour.name.common}</p>
+										</div>
+									))}
+								</div>
+							) : ''
+						}
+					</div>
 				</div>
 			</div>
 		</div>

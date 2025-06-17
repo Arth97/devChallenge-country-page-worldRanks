@@ -7,7 +7,7 @@ const CountryRow = ({country}) => {
 
   return (
     <>
-      <tr onClick={() => navigate(`/countryDetail/${country.name.official}`)}>
+      <tr onClick={() => navigate(`/countryDetail/${country.cca3}`)}>
 				<td className="py-2">
 					<img	src={country.flags.svg} alt={country.flags.alt} width={50} height={40} />
 				</td>

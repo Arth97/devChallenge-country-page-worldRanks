@@ -16,7 +16,7 @@ if (container) {
 				<TableOptionsProvider>
 					<Routes>				
 						<Route path="/" element={<App />} />
-						<Route path="/countryDetail/:countryParam" element={<CountryDetail />} />
+						<Route path="/countryDetail/:cca3" element={<CountryDetail />} />
 					</Routes>
 				</TableOptionsProvider>
 			</BrowserRouter>

@@ -24,7 +24,7 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 
 	const fetchData = async () => {
 		try {
-			const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flags,population,area,region,subregion,independent,unMember');
+			const response = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,population,area,region,subregion,independent,unMember');
 			const data = await response.json();
 			setData(data)
 			sortCache.current = {};

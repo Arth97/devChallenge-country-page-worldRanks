@@ -33,12 +33,12 @@ const TableOptions = () => {
 			<div>
 				<label className="text-12-bold block mb-2">Region</label>
 				<div className="flex flex-wrap gap-3">
-					<button className={`region-tag text-12-medium ${isRegionSelected("Americas") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Americas")}>Americas</button>
-					<button className={`region-tag text-12-medium ${isRegionSelected("Antartic") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Antartic")}>Antartic</button>
-					<button className={`region-tag text-12-medium ${isRegionSelected("Africa") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Africa")}>Africa</button>
-					<button className={`region-tag text-12-medium ${isRegionSelected("Asia") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Asia")}>Asia</button>
-					<button className={`region-tag text-12-medium ${isRegionSelected("Europe") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Europe")}>Europe</button>
-					<button className={`region-tag text-12-medium ${isRegionSelected("Oceania") ? " region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Oceania")}>Oceania</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Americas") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Americas")}>Americas</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Antartic") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Antartic")}>Antartic</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Africa") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Africa")}>Africa</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Asia") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Asia")}>Asia</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Europe") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Europe")}>Europe</button>
+					<button className={`region-tag text-12-medium ${isRegionSelected("Oceania") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Oceania")}>Oceania</button>
 				</div>
 			</div>
 
