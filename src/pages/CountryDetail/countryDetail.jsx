@@ -28,14 +28,33 @@ const CountryDetail = () => {
 
   return (
     <div className="country-detail">
-			<img	src={country?.flags?.svg} alt={country?.flags?.alt} width={50} height={40} />
+			<img	src={country?.flags?.svg} alt={country?.flags?.alt} width={260} height={195} />
 			<h2>{country?.name.common}</h2>
 			<p></p>
 			<div className="country-data">
 
 			</div>
 			<div className="country-details">
-
+				<div className="flex justify-between">
+					<p>Capital</p>
+					<p>{country?.capital}</p>
+				</div>
+				<div className="flex justify-between">
+					<p>Subregion</p>
+					<p>{country?.subregion}</p>
+				</div>
+				<div className="flex justify-between">
+					<p>Language</p>
+					{/* <p>{country?.languages}</p> */}
+				</div>
+				<div className="flex justify-between">
+					<p>Currencies</p>
+					{/* <p>{country.currencies}</p> */}
+				</div>
+				<div className="flex justify-between">
+					<p>Continents</p>
+					<p>{country?.continents}</p>
+				</div>
 			</div>
 			<div className="country-neighbours">
 

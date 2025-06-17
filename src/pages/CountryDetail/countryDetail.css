@@ -2,6 +2,7 @@
 	margin-top: 210px;
 	min-height: 100vh;
 	max-width: 720px;
+	min-width: 720px;
 	width: 100%;
 	padding: 30px;
 
@@ -13,4 +14,10 @@
 	border: 1px solid #282B30;
 	background-color: #1B1D1F;
 	border-radius: 15px;
+}
+
+img {
+	max-width: 260px;
+	width: 260px;
+	height: 195px;
 }
