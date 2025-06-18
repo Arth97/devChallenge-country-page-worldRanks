@@ -36,16 +36,3 @@ function App() {
 }
 
 export default App;
-
-
-/*
-	TODOS:
-	- Filtro sort by OK
-	- Filtro Region OK
-	- Filtro Status OK
-	- countriesCount OK
-	- Input Search logica OK
-	- Pagina detallles 
-	- Gaps en la tabla 
-
-*/

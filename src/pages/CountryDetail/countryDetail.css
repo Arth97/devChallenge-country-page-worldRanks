@@ -8,7 +8,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* justify-content: center; */
 	
 	border: 1px solid #282B30;
 	background-color: #1B1D1F;
@@ -69,7 +68,6 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
 	gap: 20px;
 }
 

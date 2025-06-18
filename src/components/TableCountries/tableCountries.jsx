@@ -56,7 +56,7 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
       } else if (sort === 'area') {
         sortedData = [...data].sort((a, b) => b.area - a.area);
       } else {
-        sortedData = [...data].sort((a, b) => a.name.official.localeCompare(b.name.official));
+        sortedData = [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
       }
       sortCache.current[sort] = sortedData;
 		}
@@ -83,17 +83,20 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 		
 		setFilteredData(filteredData);
 		setCountriesCount(filteredData.length);
+
+		if (searchInput!=="") searchByInput(filteredData);
 	}
 
-	const searchByInput = () => {
+	const searchByInput = (filteredDataParam) => {
+		let data = filteredDataParam || filteredData;
 		if (!filteredData || (sortCache.current[sort] && searchInput === "")) {
 			filterByRegions();
 			return;
 		}
 
 		const lowerSearch = searchInput.toLowerCase();
-		const searchedData = filteredData.filter(country => {
-			const name = country.name?.official?.toLowerCase() || '';
+		const searchedData = data.filter(country => {
+			const name = country.name?.common?.toLowerCase() || '';
 			const region = country.region?.toLowerCase() || '';
 			const subregion = country.subregion?.toLowerCase() || '';
 			return (
@@ -110,7 +113,7 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 		<div className="w-2/3">
 			<table className="w-full text-left">
 				<thead>
-					<tr className="text-12-bold border-b border-[#6C727F]">
+					<tr className="text-12-bold border-b">
 						<th className="py-3 pr-10">Flag</th>
 						<th className="py-3" style={{ maxWidth: '250px' }}>Name</th>
 						<th className="py-3">Population</th>
@@ -118,7 +121,7 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 						<th className="py-3">Region</th>
 					</tr>
 				</thead>
-				<tbody style={{ height: '920px' }}>
+				<tbody>
           {paginatedData && paginatedData.map((country, index) => (	
 						<CountryRow country={country} key={index} />
           ))}

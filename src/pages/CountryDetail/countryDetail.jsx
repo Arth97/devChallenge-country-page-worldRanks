@@ -16,7 +16,6 @@ const CountryDetail = () => {
 
 	const fetchData = async () => {
 		try {
-			// const response = await fetch(`https://restcountries.com/v3.1/name/${cca3}`);
 			const response = await fetch(`https://restcountries.com/v3.1/alpha/${cca3}`);
 			const data = await response.json();
 			setCountry(data[0]);
@@ -45,7 +44,6 @@ const CountryDetail = () => {
 					return data;
 				})
 			);
-			console.log("responses", responses);
 			setNeighbours(responses);
 		} catch (err) {
 			console.error('Error fetching neighbours:', err);
@@ -65,7 +63,7 @@ const CountryDetail = () => {
 			<div className="country-info-container mt-10">
 				<div className="country-info">
 					<p>Capital</p>
-					<p>{country?.capital}</p>
+					<p>{country?.capital?.join(', ')}</p>
 				</div>
 				<div className="country-info">
 					<p>Subregion</p>
@@ -92,7 +90,7 @@ const CountryDetail = () => {
 							(
 								<div className="neighbour-list">
 									{neighbours.map((neighbour, index) => (
-										<div>
+										<div key={index}>
 											<img src={neighbour.flags.svg} alt={neighbour.flags.alt} className="neighbour-img" width={80} height={60} />
 											<p>{neighbour.name.common}</p>
 										</div>
