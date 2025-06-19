@@ -6,6 +6,7 @@ import { TableOptionsProvider } from './context/TableOptionsContext';
 import { BrowserRouter, Routes, Route } from "react-router";
 import CountryDetail from './pages/CountryDetail/countryDetail';
 
+const baseUrl = "/devChallenge-country-page-worldRanks"
 
 const container = document.getElementById('root');
 if (container) {
@@ -15,8 +16,8 @@ if (container) {
 			<BrowserRouter>
 				<TableOptionsProvider>
 					<Routes>				
-						<Route path="/" element={<App />} />
-						<Route path="/countryDetail/:cca3" element={<CountryDetail />} />
+						<Route path={`${baseUrl}/`} element={<App />} />
+						<Route path={`${baseUrl}/countryDetail/:cca3`} element={<CountryDetail />} />
 					</Routes>
 				</TableOptionsProvider>
 			</BrowserRouter>
