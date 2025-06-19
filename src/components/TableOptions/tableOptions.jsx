@@ -18,10 +18,10 @@ const TableOptions = () => {
   }
 
   return (
-		<div className="w-1/3 flex flex-col gap-6">
+		<div className="md:w-1/3 flex flex-col gap-6">
 			{/* Sort by */}
 			<div>
-				<label htmlFor="sort" className="text-12-bold block mb-2">Sort by</label>
+				<label htmlFor="sort" className="text-12-medium block mb-2">Sort by</label>
 				<select className="cursor-pointer" name="Sort" id="sort" value={sort} onChange={(e) => {setSort(e.target.value)}}>
 					<option value="name">Name</option>
 					<option value="population">Population</option>
@@ -31,7 +31,7 @@ const TableOptions = () => {
 
 			{/* Region */}
 			<div>
-				<label className="text-12-bold block mb-2">Region</label>
+				<label className="text-12-medium block mb-2">Region</label>
 				<div className="flex flex-wrap gap-3">
 					<button className={`region-tag text-12-medium ${isRegionSelected("Americas") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Americas")}>Americas</button>
 					<button className={`region-tag text-12-medium ${isRegionSelected("Antartic") ? "region-tag-selected" : ""}`} onClick={() => toggleRegionSelected("Antartic")}>Antartic</button>
@@ -44,7 +44,7 @@ const TableOptions = () => {
 
 			{/* Status */}
 			<div>
-				<label className="text-12-bold block mb-2">Status</label>
+				<label className="text-12-medium block mb-2">Status</label>
 				<div className="flex flex-col gap-2">
 					<label className="text-12-medium inline-flex items-center">
 						<input 

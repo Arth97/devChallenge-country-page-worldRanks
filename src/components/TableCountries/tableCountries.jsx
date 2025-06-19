@@ -110,7 +110,7 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 	}
 
   return (
-		<div className="w-2/3">
+		<div className="md:w-2/3">
 			<table className="w-full text-left">
 				<thead>
 					<tr className="text-12-bold border-b">

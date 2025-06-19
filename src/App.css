@@ -33,3 +33,9 @@ select, input::placeholder {
   background-size: 25px;
   background-position: 13px center;
 }
+
+@media (max-width: 768px) {
+	.input-search {
+		width: 100%;
+	}
+}

@@ -16,8 +16,8 @@ function App() {
 
   return (
 		<div className="App">
-			<div className="w-full flex flex-row justify-between mb-7">
-				<p className="text-16-semibold">Found {countriesCount} countries</p>
+			<div className="w-full flex md:flex-row flex-col justify-between mb-7 gap-6">
+				<p className="text-16-semibold md:self-center">Found {countriesCount} countries</p>
 				<input
 					type="search"
 					id="search"
@@ -27,7 +27,7 @@ function App() {
 				/>
 			</div>
 
-			<div className="w-full flex flex-row gap-8">
+			<div className="w-full flex md:flex-row flex-col gap-8">
 					<TableOptions />
 					<TableCountries setCountriesCount={setCountriesCount} searchInput={searchInput} />
 			</div>
