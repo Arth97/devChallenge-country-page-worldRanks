@@ -114,11 +114,11 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 			<table className="w-full text-left">
 				<thead>
 					<tr className="text-12-bold border-b">
-						<th className="py-3 pr-10">Flag</th>
-						<th className="py-3" style={{ maxWidth: '250px' }}>Name</th>
-						<th className="py-3">Population</th>
-						<th className="py-3">Area (km²)</th>
-						<th className="py-3">Region</th>
+						<th className="py-3 px-2">Flag</th>
+						<th className="py-3 px-2" style={{ maxWidth: '250px' }}>Name</th>
+						<th className="py-3 px-2">Population</th>
+						<th className="py-3 px-2">Area (km²)</th>
+						<th className="py-3 px-2">Region</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -129,13 +129,15 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 			</table>
 			<div className="flex gap-2 mt-4 justify-center">
         <button
+					className="page-button"
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
           disabled={currentPage === 1}
         >
           Prev
         </button>
-        <span>Página {currentPage} de {filteredData ? Math.ceil(filteredData.length / pageSize) : 1}</span>
+        <span className="self-center">Página {currentPage} de {filteredData ? Math.ceil(filteredData.length / pageSize) : 1}</span>
         <button
+					className="page-button"
           onClick={() =>
             setCurrentPage((p) =>
               filteredData && p < Math.ceil(filteredData.length / pageSize) ? p + 1 : p

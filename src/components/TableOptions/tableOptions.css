@@ -9,11 +9,17 @@ select {
 	width: fit-content;
 	padding: 7px 15px;
 	border-radius: 10px;
+	background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.region-tag:hover {
+	transform: scale(1.10);
 }
 
 .region-tag-selected {
- background-color: #282B30;
-} /*TODO: Una transicion estaria guapo*/
+	background-color: #282B30;
+}
 
 .status-checkbox {
 	width: 20px;

@@ -1,1 +1,11 @@
 
+.page-button {
+	width: fit-content;
+	padding: 7px 15px;
+	border-radius: 10px;
+	background-color: #282B30;
+}
+
+.page-button:hover {
+	transform: scale(1.05);
+}

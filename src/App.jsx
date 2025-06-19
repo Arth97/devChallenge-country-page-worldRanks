@@ -21,7 +21,7 @@ function App() {
 				<input
 					type="search"
 					id="search"
-					className="input-search"
+					className="text-14-medium input-search"
 					placeholder="Search by Name, Region, Subregion"
 					onChange={(e) => debouncedHandleSearch(e.target.value)}
 				/>

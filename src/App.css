@@ -2,6 +2,7 @@
 	margin-top: 210px;
 	min-height: 100vh;
 	max-width: 1280px;
+	min-width: 100%;
 	padding: 30px;
 
 	display: flex;
@@ -25,4 +26,10 @@ select, input::placeholder {
 
 .input-search {
 	background-color: #282B30;
+	width: 340px;
+	padding-left: 45px;
+	background-image: url('/public/Search.svg');
+	background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 13px center;
 }
