@@ -24,7 +24,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://arth97.github.io/devchallenge-country-page-worldranks/",
+  "homepage": "https://arth97.github.io/devChallenge-country-page-worldRanks/",
   "eslintConfig": {
     "extends": [
       "react-app",
