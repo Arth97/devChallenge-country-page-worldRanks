@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import './countryDetail.css';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 const CountryDetail = () => {
 	const [country, setCountry] = useState(null);
 	const [neighbours, setNeighbours] = useState(null);
 
 	const {cca3} = useParams();
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!cca3) return;
@@ -39,7 +41,7 @@ const CountryDetail = () => {
 		try {
 			const responses = await Promise.all(
 				neigh.map(async(code) => {
-					const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}?fields=name,flags`);
+					const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}?fields=name,flags,cca3`);
 					const data = await response.json();
 					return data;
 				})
@@ -90,9 +92,9 @@ const CountryDetail = () => {
 							(
 								<div className="neighbour-list">
 									{neighbours.map((neighbour, index) => (
-										<div key={index}>
+										<div className="px-3 py-2" key={index} onClick={() => navigate(`/countryDetail/${neighbour.cca3}`)}>
 											<img src={neighbour.flags.svg} alt={neighbour.flags.alt} className="neighbour-img" width={80} height={60} />
-											<p>{neighbour.name.common}</p>
+											<p className="pt-1">{neighbour.name.common}</p>
 										</div>
 									))}
 								</div>

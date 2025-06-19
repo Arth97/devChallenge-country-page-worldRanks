@@ -2,7 +2,6 @@
 	margin-top: 210px;
 	min-height: 100vh;
 	max-width: 1280px;
-	min-width: 100%;
 	padding: 30px;
 
 	display: flex;
@@ -37,5 +36,11 @@ select, input::placeholder {
 @media (max-width: 768px) {
 	.input-search {
 		width: 100%;
+	}
+}
+
+@media (max-width: 640px) {
+	.App {
+		padding: 15px;
 	}
 }

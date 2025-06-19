@@ -2,7 +2,6 @@
 	margin-top: 210px;
 	min-height: 100vh;
 	max-width: 720px;
-	min-width: 720px;
 	width: 100%;
 
 	display: flex;
@@ -59,22 +58,34 @@
 .country-neighbours {
 	width: 100%;
 	height: fit-content;
-	padding: 0 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	overflow-x: auto;
 }
 
 .neighbour-list {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 20px;
 }
 
 .neighbour-img {
-	max-width: 100%;
+	max-width: fit-content;
 	width: fit-content;
 	height: 60px;
 	border-radius: 5px;
+}
+
+@media (max-width: 640px) {
+	.country-data {
+		gap: 10px;
+		padding: 0 5px;
+	}
+	.title-text {
+		font-size: 14px;
+	}
+	.data-tag {
+		padding: 10px;
+	}
 }

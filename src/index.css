@@ -95,3 +95,9 @@ body::before {
 	align-items: center;
 	justify-content: center;
 }
+
+@media (max-width: 640px) {
+	body {
+		padding: 15px;
+	}
+}
