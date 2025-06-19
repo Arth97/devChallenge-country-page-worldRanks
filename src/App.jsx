@@ -27,7 +27,7 @@ function App() {
 				/>
 			</div>
 
-			<div className="w-full flex md:flex-row flex-col gap-8">
+			<div className="w-full flex md:flex-row flex-col gap-6">
 					<TableOptions />
 					<TableCountries setCountriesCount={setCountriesCount} searchInput={searchInput} />
 			</div>

@@ -112,6 +112,13 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
   return (
 		<div className="md:w-2/3">
 			<table className="w-full text-left">
+				  <colgroup>
+						<col style={{ width: '15%' }} />
+						<col style={{ width: '35%' }} />
+						<col style={{ width: '20%' }} />
+						<col style={{ width: '20%' }} />
+						<col style={{ width: '15%' }} />
+					</colgroup>
 				<thead>
 					<tr className="text-12-bold border-b">
 						<th className="py-3 px-2">Flag</th>

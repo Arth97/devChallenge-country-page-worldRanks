@@ -9,3 +9,8 @@
 .page-button:hover {
 	transform: scale(1.05);
 }
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
