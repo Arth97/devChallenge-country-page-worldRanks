@@ -114,8 +114,8 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 			<table className="w-full text-left">
 				  <colgroup>
 						<col style={{ width: '15%' }} />
-						<col style={{ width: '35%' }} />
-						<col style={{ width: '20%' }} />
+						<col style={{ width: '33%' }} />
+						<col style={{ width: '22%' }} />
 						<col style={{ width: '20%' }} />
 						<col style={{ width: '15%' }} />
 					</colgroup>

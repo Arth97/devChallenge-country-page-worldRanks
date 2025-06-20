@@ -89,7 +89,7 @@
 @media (max-width: 640px) {
 	.country-data {
 		gap: 10px;
-		padding: 0 5px;
+		padding: 0 10px;
 	}
 	.title-text {
 		font-size: 14px;
