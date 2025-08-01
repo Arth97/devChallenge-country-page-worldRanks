@@ -10,7 +10,6 @@ const CountryDetail = () => {
 	const {cca3} = useParams();
 
 	const navigate = useNavigate();
-	const baseUrl = "/devChallenge-country-page-worldRanks"
 
 	useEffect(() => {
 		if (!cca3) return;
@@ -93,7 +92,7 @@ const CountryDetail = () => {
 							(
 								<div className="neighbour-list">
 									{neighbours.map((neighbour, index) => (
-										<div className="neighbour" key={index} onClick={() => navigate(`${baseUrl}/countryDetail/${neighbour.cca3}`)}>
+										<div className="neighbour" key={index} onClick={() => navigate(`/countryDetail/${neighbour.cca3}`)}>
 											<img src={neighbour.flags.svg} alt={neighbour.flags.alt} className="neighbour-img" width={80} height={60} />
 											<p className="pt-1">{neighbour.name.common}</p>
 										</div>

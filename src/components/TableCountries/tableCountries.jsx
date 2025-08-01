@@ -35,6 +35,23 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 	}
 
 	useEffect(() => {
+		const sortData = () => {
+			if (!sortCache.current[sort] && !data) return;
+	
+			if (!sortCache.current[sort]) {
+				let sortedData = []
+				if (sort === 'population') {
+					sortedData = [...data].sort((a, b) => b.population - a.population);
+				} else if (sort === 'area') {
+					sortedData = [...data].sort((a, b) => b.area - a.area);
+				} else {
+					sortedData = [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
+				}
+				sortCache.current[sort] = sortedData;
+			}
+			filterByRegions();
+		}
+
 		sortData();
 	},[data, sort]);
 
@@ -45,23 +62,6 @@ const TableCountries = ({setCountriesCount, searchInput}) => {
 	useEffect(() => {
 		searchByInput();
 	},[searchInput]);
-
-	const sortData = () => {
-		if (!sortCache.current[sort] && !data) return;
-
-		if (!sortCache.current[sort]) {
-			let sortedData = []
-			if (sort === 'population') {
-        sortedData = [...data].sort((a, b) => b.population - a.population);
-      } else if (sort === 'area') {
-        sortedData = [...data].sort((a, b) => b.area - a.area);
-      } else {
-        sortedData = [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
-      }
-      sortCache.current[sort] = sortedData;
-		}
-		filterByRegions();
-	}
 
 	const filterByRegions = () => {
 		if (!sortCache.current[sort] && !data) return;
