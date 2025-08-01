@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/devChallenge-country-page-worldRanks/static/css/main.1d120f3f.css",
-    "main.js": "/devChallenge-country-page-worldRanks/static/js/main.033dc200.js",
+    "main.css": "/devChallenge-country-page-worldRanks/static/css/main.954a4a5d.css",
+    "main.js": "/devChallenge-country-page-worldRanks/static/js/main.ac06053f.js",
     "static/media/hero-image.jpg": "/devChallenge-country-page-worldRanks/static/media/hero-image.cf103df802ad59532be0.jpg",
     "static/media/Logo.svg": "/devChallenge-country-page-worldRanks/static/media/Logo.0df25db9b1a0cbd724ab.svg",
     "index.html": "/devChallenge-country-page-worldRanks/index.html",
     "static/media/Search.svg": "/devChallenge-country-page-worldRanks/static/media/Search.bed9aa5c00a3be931aef.svg",
-    "main.1d120f3f.css.map": "/devChallenge-country-page-worldRanks/static/css/main.1d120f3f.css.map",
-    "main.033dc200.js.map": "/devChallenge-country-page-worldRanks/static/js/main.033dc200.js.map"
+    "main.954a4a5d.css.map": "/devChallenge-country-page-worldRanks/static/css/main.954a4a5d.css.map",
+    "main.ac06053f.js.map": "/devChallenge-country-page-worldRanks/static/js/main.ac06053f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d120f3f.css",
-    "static/js/main.033dc200.js"
+    "static/css/main.954a4a5d.css",
+    "static/js/main.ac06053f.js"
   ]
 }
