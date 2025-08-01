@@ -13,7 +13,7 @@ const CountryRow = ({country}) => {
 
   return (
     <>
-      <tr className="h-16" onClick={() => navigate(`/countryDetail/${country.cca3}`)}>
+      <tr className="country-row" onClick={() => navigate(`/countryDetail/${country.cca3}`)}>
 				<td className="text-14-medium text-row md:p-2 p-1">
 					<img className="flag-img" src={country.flags.svg} alt={country.flags.alt} width={50} height={40} />
 				</td>

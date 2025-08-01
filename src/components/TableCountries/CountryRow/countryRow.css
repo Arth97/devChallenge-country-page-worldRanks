@@ -6,6 +6,15 @@
 	height: 40px;	
 }
 
+.country-row {
+	height: 64px;
+}
+
+.country-row:hover {
+	cursor: pointer;
+	transform: scale(1.02);
+}
+
 @media (max-width: 640px) {
 	.flag-img {
 		width: 45px;
